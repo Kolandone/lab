@@ -1,0 +1,80 @@
+{                                                                         "route": {
+                "geoip": {                                                        "path": "geo-assets\\sagernet-sing-geoip-geoip.db"
+                },                                                                "geosite": {
+                "path": "geo-assets\\sagernet-sing-geosite-geosite.db"
+                },                                                                "rules": [
+                {                                                                         "inbound": "dns-in",
+                        "outbound": "dns-out"                                     },
+                {                                                                         "port": 53,
+                        "outbound": "dns-out"                                     },
+                {                                                                         "clash_mode": "Direct",
+                        "outbound": "direct"                                      },
+                {                                                                         "clash_mode": "Global",
+                        "outbound": "select"                                      }
+                ],                                                                "auto_detect_interface": true,
+                "override_android_vpn": true                              },
+        "outbounds": [                                                            {
+                "type": "selector",                                               "tag": "select",
+                "outbounds": [                                                            "auto",
+                        "IP->Iran, kolandone",                                            "IP->Main, kolandone"
+                ],                                                                "default": "auto"
+                },
+                {
+                "type": "urltest",
+                "tag": "auto",
+                "outbounds": [
+                        "IP->Iran, kolandone",
+                        "IP->Main, kolandone"
+                ],
+                "url": "http://cp.cloudflare.com/",
+                "interval": "10m0s"
+                },
+                {
+                "type": "wireguard",
+                "tag": "IP->Iran, kolandone",
+                "local_address": [
+                        "172.16.0.2/32",
+                        "2606:4700:110:8993:d7b3:bf9b:adb0:4c82/128"
+                ],
+                "private_key": "yEZS5Win4EY9CqhWVDs1+EmhphNY9sv/7FtF5NvdkXI=",
+                "server": "162.159.192.182",
+                "server_port": 891,
+                "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+                "reserved": [138,16,19],
+                "mtu": 1280,
+                "fake_packets": "5-10"
+                },
+                {
+                "type": "wireguard",
+                "tag": "IP->Main, kolandone",
+                "detour": "IP->Iran, kolandone",
+                "local_address": [
+                        "172.16.0.2/32",
+                        "2606:4700:110:807b:d51:40e4:3fee:59c/128"
+                ],
+                "private_key": "MKTBFjRZ+Uov9/eBiM1o9GZ2i6sw95xBbYG56rGE43g=",
+                "server": "162.159.192.182",
+                "server_port": 891,
+                "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+                "reserved": [45,209,2],
+                "mtu": 1280,
+                "fake_packets": "5-10"
+                },
+                {
+                "type": "dns",
+                "tag": "dns-out"
+                },
+                {
+                "type": "direct",
+                "tag": "direct"
+                },
+                {
+                "type": "direct",
+                "tag": "bypass"
+                },
+                {
+                "type": "block",
+                "tag": "block"
+                }
+        ]
+        }
