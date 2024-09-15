@@ -1,0 +1,23 @@
+پروکسی اول
+
+https://t.me/proxy?server=82.153.35.105&port=85&secret=eeRighJJvXrFGRMCIMJdCQ
+
+پروکسب دوم
+
+https://t.me/proxy?server=82.153.35.91&port=343&secret=eeRighJJvXrFGRMCIMJdCQ
+
+پروکسی سوم
+
+https://t.me/proxy?server=82.153.35.37&port=343&secret=eeRighJJvXrFGRMCIMJdCQ
+
+پروکسی چهارم
+
+https://t.me/proxy?server=82.153.35.93&port=17&secret=eeRighJJvXrFGRMCIMJdCQ
+
+پروکسی پنجم
+
+https://t.me/proxy?server=82.153.35.127&port=543&secret=7lfeeSS50CEl9xlOLzHq7sw1MDUuY29t
+
+پروکسی ششم
+
+https://t.me/proxy?server=82.153.35.104&port=85&secret=eeRighJJvXrFGRMCIMJdCQ
